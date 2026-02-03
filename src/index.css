@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   Hospital Website Design System
+   Palette: #A5C89E | #FFFBB1 | #D8E983 | #AEB877
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* =========================
+   CSS VARIABLES
+   ========================= */
+@layer base {
+  :root {
+    /* Primary – Soft Green */
+    --primary: 101 28% 70%;            /* #A5C89E */
+    --primary-foreground: 101 30% 15%;
+    --primary-light: 101 40% 85%;
+    --primary-dark: 101 30% 55%;
+
+    /* Secondary – Fresh Lime */
+    --secondary: 70 65% 70%;           /* #D8E983 */
+    --secondary-foreground: 70 30% 20%;
+
+    /* Accent – Olive */
+    --accent: 75 20% 60%;              /* #AEB877 */
+    --accent-foreground: 75 30% 15%;
+
+    /* Success */
+    --success: 140 45% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Background */
+    --background: 58 100% 85%;         /* #FFFBB1 */
+    --foreground: 75 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 75 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 75 20% 15%;
+
+    /* Muted */
+    --muted: 60 50% 90%;
+    --muted-foreground: 75 15% 45%;
+
+    /* Destructive */
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders */
+    --border: 75 20% 80%;
+    --input: 75 20% 80%;
+    --ring: 101 28% 70%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      #A5C89E 0%,
+      #D8E983 100%
+    );
+
+    --gradient-hero: linear-gradient(
+      135deg,
+      #A5C89E 0%,
+      #D8E983 50%,
+      #FFFBB1 100%
+    );
+
+    --gradient-card: linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #f7f9ee 100%
+    );
+
+    --gradient-overlay: linear-gradient(
+      180deg,
+      rgba(0,0,0,.25) 0%,
+      rgba(0,0,0,.55) 100%
+    );
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+    --shadow-md: 0 6px 12px rgb(165 200 158 / 0.25);
+    --shadow-lg: 0 14px 35px rgb(165 200 158 / 0.35);
+    --shadow-card: 0 4px 20px rgb(0 0 0 / 0.08);
+    --shadow-card-hover: 0 16px 45px rgb(165 200 158 / 0.4);
+
+    /* Sidebar */
+    --sidebar-background: 58 100% 90%;
+    --sidebar-foreground: 75 20% 20%;
+    --sidebar-primary: 101 28% 70%;
+    --sidebar-primary-foreground: 75 20% 15%;
+    --sidebar-accent: 60 50% 90%;
+    --sidebar-accent-foreground: 75 20% 20%;
+    --sidebar-border: 75 20% 80%;
+    --sidebar-ring: 101 28% 70%;
+  }
+
+  /* Dark Mode */
+  .dark {
+    --background: 75 20% 10%;
+    --foreground: 0 0% 95%;
+
+    --card: 75 20% 14%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 75 20% 14%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 101 28% 65%;
+    --secondary: 70 65% 55%;
+    --accent: 75 20% 55%;
+
+    --muted: 75 20% 18%;
+    --muted-foreground: 75 15% 65%;
+
+    --border: 75 20% 25%;
+    --input: 75 20% 25%;
+    --ring: 101 28% 65%;
+
+    --sidebar-background: 75 20% 12%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-border: 75 20% 25%;
+  }
+}
+
+/* =========================
+   GLOBAL BASE STYLES
+   ========================= */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+/* =========================
+   COMPONENTS
+   ========================= */
+@layer components {
+  .btn-hero {
+    @apply inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .btn-hero:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .btn-hero-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300;
+    @apply bg-white/60 backdrop-blur border-2 border-primary text-primary;
+  }
+
+  .btn-hero-outline:hover {
+    @apply bg-primary text-primary-foreground scale-105;
+  }
+
+  .card-medical {
+    @apply rounded-2xl p-6 transition-all duration-500;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-medical:hover {
+    @apply -translate-y-2;
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12;
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-lg border border-white/30;
+  }
+
+  .underline-animate {
+    @apply relative;
+  }
+
+  .underline-animate::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+  }
+
+  .underline-animate:hover::after {
+    @apply w-full;
+  }
+
+  .counter-box {
+    @apply p-8 rounded-2xl text-center transition-all duration-300;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .counter-box:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+/* =========================
+   UTILITIES & ANIMATIONS
+   ========================= */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(.8); opacity:.5; }
+  50% { transform: scale(1.2); opacity:0; }
+  100% { transform: scale(.8); opacity:.5; }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes splash {
+  0% { transform: scale(0); opacity:1; }
+  100% { transform: scale(4); opacity:0; }
+}
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-splash { animation: splash .6s ease-out forwards; }
+
+/* =========================
+   SCROLLBAR
+   ========================= */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.4);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.7);
+}
